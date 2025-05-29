@@ -34,12 +34,13 @@
 </head>
 <body>
   <h1>Upcoming Soccer Matches</h1>
-  <div id="matches"></div>
+  <div id="matches">Loading matches...</div>
 
   <script>
     async function fetchMatches() {
       const matchesDiv = document.getElementById('matches');
-      const apiUrl = 'https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=4328';
+      // Use CORS proxy to avoid CORS issues
+      const apiUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://www.thesportsdb.com/api/v1/json/1/eventsnext.php?id=4328');
 
       try {
         const response = await fetch(apiUrl);
